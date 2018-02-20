@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=utf-8>
+    <title>Video Loop</title>
+    <link rel="stylesheet" href="./style.scss" />
+  </head>
+  <body class="">
+    <div class="container">
+      <h1>Video Loop</h1>
+      <div id="display">
+        <video autoplay="true" id="video" class="video"></video>
+      </div>
+      <br />
+      Delay: <input id="id_delay" type="number" name="delay" value="2000" /> &nbsp;
+      Num echos: <input id="id_num" type="number" name="num" value="1" />
+      <br /><br />
+      Transforms:
+      <label>
+        <input type="checkbox" class="transform-check" name="removeBg" />
+        Remove BG
+      </label>
+      <label>
+        <input type="checkbox" class="transform-check" name="invert" />
+        Invert
+      </label>
+      <br /><br />
+      <button id="id_separate">Toggle Separate Layers</button>
+      <button id="id_setbg">Set background</button>
+    </div>
+    <script src="./js/index.js"></script>
+  </body>
+</html>

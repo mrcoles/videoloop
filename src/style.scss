@@ -1,0 +1,46 @@
+
+.container {
+  width: 500px;
+  margin: 0 auto;
+}
+
+#display {
+  position: relative;
+  width: 500px;
+  height: 375px;
+  margin: 2em auto;
+  background: #777;
+}
+
+.canvas,
+.video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 500px;
+  height: 375px;
+  z-index: 1;
+}
+
+.canvas {
+  // top: 375px;
+  opacity: 0.5;
+}
+
+#bg-canvas {
+  z-index: 0;
+}
+
+body.separate {
+  #display {
+    height: auto;
+    background: #fff;
+
+    .canvas,
+    .video {
+      position: relative;
+    }
+  }
+}
+
+label { margin-right: 10px; }
