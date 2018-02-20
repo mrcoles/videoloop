@@ -7,6 +7,12 @@ Some experiments with looping video content using the webcam for content.
 
 ### Build
 
+Install dependencies:
+
+```
+yarn install
+```
+
 Build this project with parcel!
 
 ```
