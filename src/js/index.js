@@ -50,11 +50,15 @@ const Layers = {
   }
 };
 
-window._Layers = Layers; //REM
-
 promUserMedia({ video: true })
   .then(stream => {
-    Layers.video.src = window.URL.createObjectURL(stream);
+    try {
+      Layers.video.src = window.URL.createObjectURL(stream);
+    } catch (e) {
+      console.error('video.src = createObjectURL error', e);
+      console.log('try `video.srcObject = stream` instead');
+      Layers.video.srcObject = stream;
+    }
 
     (function _canvasLoop() {
       window.requestAnimationFrame(() => {
@@ -66,8 +70,8 @@ promUserMedia({ video: true })
   })
   .catch(err => {
     // do something
-    console.error('Unable to access video!');
-    console.error(e);
+    console.error('[promUserMedia.catch] Unable to access video!');
+    console.error(err);
   });
 
 const _queueCanvas = () => {
