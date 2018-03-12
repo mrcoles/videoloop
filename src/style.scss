@@ -73,6 +73,10 @@ body.fullscreen {
     cursor: none; // hide the cursor in fullscreen mode
   }
 
+  &.is-moving #display {
+    cursor: auto;
+  }
+
   #controls {
     position: fixed;
     bottom: 0;

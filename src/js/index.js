@@ -165,6 +165,33 @@ const _drawCanvas = () =>
     }
   });
 
+  let isMoving = false;
+  let movingTimeout = null;
+
+  $('#display').on('mousemove', function() {
+    if (Layers.curClsName !== CLS_FULLSCREEN) {
+      return;
+    }
+
+    window.clearTimeout(movingTimeout);
+
+    if (!isMoving) {
+      isMoving = true;
+      $('body').addClass('is-moving');
+    }
+
+    movingTimeout = window.setTimeout(() => {
+      isMoving = false;
+      $('body').removeClass('is-moving');
+    }, 1000);
+  });
+
+  $(window).on('keyup', function(e) {
+    if (Layers.curClsName === CLS_FULLSCREEN && e.keyCode === 27) {
+      Layers.showNext();
+    }
+  });
+
   $('#id_delay')
     .on('change keyup', function() {
       let text = $(this).val();
