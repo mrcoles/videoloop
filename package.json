@@ -10,5 +10,8 @@
     "jquery": "^3.3.1",
     "node-sass": "^4.7.2",
     "raf-polyfill": "^1.0.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0"
   }
 }

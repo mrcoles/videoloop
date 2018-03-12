@@ -50,14 +50,27 @@ const Layers = {
   }
 };
 
+// var v = document.getElementById('video');
+// var w = document.body.offsetWidth
+// var h = (v.videoHeight / v.videoWidth) * w;
+// v.setAttribute('width', w)
+// v.setAttribute('height', h)
+
 promUserMedia({ video: true })
   .then(stream => {
-    try {
-      Layers.video.src = window.URL.createObjectURL(stream);
-    } catch (e) {
-      console.error('video.src = createObjectURL error', e);
-      console.log('try `video.srcObject = stream` instead');
-      Layers.video.srcObject = stream;
+    if (navigator.mozGetUserMedia) {
+      Layers.video.mozSrcObject = stream;
+    } else {
+      var vu = window.URL || window.webkitURL;
+      try {
+        Layers.video.src = vu.createObjectURL(stream);
+      } catch (e) {
+        console.error('video.src = createObjectURL error', e);
+        console.log('try `video.srcObject = stream` instead');
+        Layers.video.srcObject = stream;
+      }
+
+      Layers.video.play();
     }
 
     (function _canvasLoop() {

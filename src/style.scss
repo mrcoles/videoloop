@@ -15,6 +15,7 @@
 .canvas,
 .video {
   position: absolute;
+  display: inline-block;
   top: 0;
   left: 0;
   width: 500px;
@@ -33,7 +34,8 @@
 
 body.separate {
   #display {
-    height: auto;
+    width: 100%;
+    overflow-x: auto;
     background: #fff;
 
     .canvas,
