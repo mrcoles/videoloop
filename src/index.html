@@ -10,22 +10,26 @@
     <div id="display">
       <video autoplay="true" id="video" class="video"></video>
     </div>
-    <h1>Video Loop</h1>
-    Delay: <input id="id_delay" type="number" name="delay" value="2000" /> &nbsp;
-    Num echos: <input id="id_num" type="number" name="num" value="1" />
-    <br /><br />
-    Transforms:
-    <label>
-      <input type="checkbox" class="transform-check" name="removeBg" />
-      Remove BG
-    </label>
-    <label>
-      <input type="checkbox" class="transform-check" name="invert" />
-      Invert
-    </label>
-    <br /><br />
-    <button id="id_changedisplay">Change display</button>
-    <button id="id_setbg">Set background</button>
+    <div id="title">
+      <h1>Video Loop</h1>
+    </div>
+    <div id="controls">
+      Delay: <input id="id_delay" type="number" name="delay" value="2000" /> &nbsp;
+      Num echos: <input id="id_num" type="number" name="num" value="1" />
+      <br /><br />
+      Transforms:
+      <label>
+        <input type="checkbox" class="transform-check" name="removeBg" />
+        Remove BG
+      </label>
+      <label>
+        <input type="checkbox" class="transform-check" name="invert" />
+        Invert
+      </label>
+      <br /><br />
+      <button id="id_changedisplay">Change display</button>
+      <button id="id_setbg">Set background</button>
+    </div>
 
     <script src="./js/index.js"></script>
   </body>

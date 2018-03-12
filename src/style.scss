@@ -68,7 +68,27 @@ body.fullscreen {
     height: auto;
     margin: 0;
     padding: 0;
+    z-index: 1;
+
+    cursor: none; // hide the cursor in fullscreen mode
+  }
+
+  #controls {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    height: auto;
+    background: rgba(255, 255, 255, .7);
+    padding: 20px;
+    opacity: 0;
+    transition: opacity .5s ease-in-out;
+
     z-index: 2;
+
+    &:hover {
+      opacity: 1;
+    }
   }
 
   .canvas,
