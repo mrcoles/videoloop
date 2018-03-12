@@ -143,7 +143,7 @@ promUserMedia({ video: true })
 const _queueCanvas = () => {
   let tCanvas = _sizeElt(_create('canvas'));
   tCanvas.getContext('2d').drawImage(Layers.video, 0, 0, CUR_WIDTH, CUR_HEIGHT);
-  Manip.transform(Layers.transforms, tCanvas);
+  Manip.transform(Layers.transforms, tCanvas, undefined, Layers.bgData);
 
   Layers.ctxs.forEach((ctx, i) => {
     window.setTimeout(() => {

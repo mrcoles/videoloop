@@ -6,7 +6,9 @@
 //
 
 const Manip = {
-  transform: (transforms, fromCanvas, toCanvas) => {
+  transform: (transforms, fromCanvas, toCanvas, refData) => {
+    // TODO - refData is an additional optional array imagedata.data array
+    // used by removeBg...
     toCanvas = toCanvas || fromCanvas;
     if (!transforms || !transforms.length) {
       return toCanvas;
@@ -16,7 +18,9 @@ const Manip = {
     let imageData = fromCanvas
       .getContext('2d')
       .getImageData(0, 0, width, height);
-    transforms.forEach(transform => transform(imageData.data, width, height));
+    transforms.forEach(transform =>
+      transform(imageData.data, width, height, refData)
+    );
     toCanvas.getContext('2d').putImageData(imageData, 0, 0);
     return toCanvas;
   },
@@ -71,9 +75,9 @@ const Manip = {
 
       return data;
     },
-    removeBg: data => {
-      if (Layers.bgData) {
-        let comp = Layers.bgData;
+    removeBg: (data, width, height, refData) => {
+      if (refData) {
+        let comp = refData;
         let len = data.length;
         for (let i = 0; i < len; i += 4) {
           let diff =
