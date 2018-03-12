@@ -1,4 +1,13 @@
 
+html, body, div, p {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding: 10px;
+}
+
 .container {
   width: 500px;
   margin: 0 auto;
@@ -16,7 +25,7 @@
 .video {
   position: absolute;
   display: inline-block;
-  top: 0;
+  bottom: 0; // this works nicely in full screen and works fine in other displays
   left: 0;
   width: 500px;
   height: 375px;
@@ -36,12 +45,36 @@ body.separate {
   #display {
     width: 100%;
     overflow-x: auto;
+    white-space: nowrap;
     background: #fff;
 
     .canvas,
     .video {
       position: relative;
     }
+  }
+}
+
+body.fullscreen {
+  padding: 0;
+
+  #display {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    z-index: 2;
+  }
+
+  .canvas,
+  .video {
+    width: auto;
+    height: auto;
   }
 }
 
